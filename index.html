@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disease Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9f5f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="number"]:focus {
+            border-color: #3498db;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2980b9;
+        }
+        
+        h3 {
+            text-align: center;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Liver Disease Prediction</h2>
+        <p>Enter the required values below and click "Predict" to check for liver disease.</p>
+
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="feature1">Age:</label>
+                <input type="number" id="feature1" name="feature1" placeholder="Enter Age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature2">Sex (0 = Male, 1 = Female):</label>
+                <input type="number" id="feature2" name="feature2" placeholder="Enter Sex (0 or 1)" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature3">Albumin Level:</label>
+                <input type="number" id="feature3" name="feature3" placeholder="Enter Albumin Level" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature4">Alkaline Phosphatase:</label>
+                <input type="number" id="feature4" name="feature4" placeholder="Enter Alkaline Phosphatase" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature5">Alanine Aminotransferase:</label>
+                <input type="number" id="feature5" name="feature5" placeholder="Enter Alanine Aminotransferase" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature6">Aspartate Aminotransferase:</label>
+                <input type="number" id="feature6" name="feature6" placeholder="Enter Aspartate Aminotransferase" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature7">Bilirubin Level:</label>
+                <input type="number" id="feature7" name="feature7" placeholder="Enter Bilirubin Level" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature8">Cholinesterase:</label>
+                <input type="number" id="feature8" name="feature8" placeholder="Enter Cholinesterase Level" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature9">Cholesterol Level:</label>
+                <input type="number" id="feature9" name="feature9" placeholder="Enter Cholesterol Level" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature10">Creatinine Level:</label>
+                <input type="number" id="feature10" name="feature10" placeholder="Enter Creatinine Level" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature11">Gamma Glutamyl Transferase:</label>
+                <input type="number" id="feature11" name="feature11" placeholder="Enter Gamma Glutamyl Transferase" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feature12">Protein Level:</label>
+                <input type="number" id="feature12" name="feature12" placeholder="Enter Protein Level" required>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
